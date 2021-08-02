@@ -406,6 +406,7 @@ public class Trimmer {
     Double bitrateMultiplier = options.hasKey("bitrateMultiplier") ? options.getDouble("bitrateMultiplier") : 1.0;
     Boolean removeAudio = options.hasKey("removeAudio") ? options.getBoolean("removeAudio") : false;
     Integer crf = options.hasKey("crf") ? options.getInt("crf") : null;
+    Boolean rotate = options.hasKey("rotate") ? options.getBoolean("rotate") : false
     Double averageBitrate = videoBitrate / bitrateMultiplier;
 
     if (minimumBitrate != null) {
@@ -440,6 +441,11 @@ public class Trimmer {
        cmd.add("-vf");
        cmd.add("scale=" + Integer.toString(width) + ":" + Integer.toString(height));
      }
+
+    if (rotate) {
+      cmd.add("-vf");
+      cmd.add("hflip");
+    }
 
      cmd.add("-preset");
      cmd.add("ultrafast");
