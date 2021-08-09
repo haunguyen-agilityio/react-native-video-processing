@@ -315,6 +315,11 @@
     CGSize naturalSize = [videoTrack naturalSize];
 
     CGAffineTransform transform = videoTrack.preferredTransform;
+    CGRect rect = {{0, 0}, naturalSize};
+    CGRect transformedRect = CGRectApplyAffineTransform(rect, transform);
+    // transformedRect should have origin at 0 if correct; otherwise add offset to correct it
+    transform.tx -= transformedRect.origin.x;
+    transform.ty -= transformedRect.origin.y;
     videoComposition.frameDuration = CMTimeMake(1, trackFrameRate);
 
     CGFloat videoAngleInDegree  = atan2(transform.b, transform.a) * 180 / M_PI;
