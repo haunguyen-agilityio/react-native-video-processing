@@ -71,6 +71,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.MessageDigest;
 import java.util.Formatter;
 
+import android.widget.Toast;
 
 public class Trimmer {
 
@@ -407,6 +408,10 @@ public class Trimmer {
     Boolean removeAudio = options.hasKey("removeAudio") ? options.getBoolean("removeAudio") : false;
     Integer crf = options.hasKey("crf") ? options.getInt("crf") : null;
     Boolean rotate = options.hasKey("rotate") ? options.getBoolean("rotate") : false;
+
+    Toast toast = Toast.makeText(ctx, "rotate:" + rotate.toString(), Toast.LENGTH_LONG);
+    toast.show();
+
     Double averageBitrate = videoBitrate / bitrateMultiplier;
 
     if (minimumBitrate != null) {
