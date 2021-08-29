@@ -1,6 +1,6 @@
 {
   "name": "react-native-video-processing",
-  "version": "1.7.4",
+  "version": "1.7.5",
   "description": "Native Video processing/editing for React-Native",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/shahen94/react-native-video-processing.git"
+    "url": "https://github.com/haunguyen-agilityio/react-native-video-processing.git"
   },
   "keywords": [
     "react",
